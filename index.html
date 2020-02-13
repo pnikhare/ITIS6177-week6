@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.js" 
+    integrity="sha256-bd8XIKzrtyJ1O5Sh3Xp3GiuMIzWC42ZekvrMMD4GxRg=" 
+    crossorigin="anonymous"></script>
+<script>
+    function callApi() {
+        axios.get("http://http://159.203.103.124:3000")
+        .then(resp=> {
+            console.log(resp);
+        });
+    }
+    </script>
+</body>
+</html>
