@@ -7,18 +7,34 @@
     <title>Document</title>
 </head>
 <body>
-    <button onclick="callApi()"> Call Api </button>
+    <button onclick="stopCallApi()"> Stop Call Api </button>
+
+    <div id="dateDiv"> </div>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.js" 
     integrity="sha256-bd8XIKzrtyJ1O5Sh3Xp3GiuMIzWC42ZekvrMMD4GxRg=" 
     crossorigin="anonymous"></script>
 <script>
     function callApi() {
-       axios.get("http://159.203.103.124:3000")
+       var element = document.getElementById("dateDiv"); 
+       
+       axios.get("http://localhost:3000")
        //axios.get("https://dplny67w0f.execute-api.us-east-2.amazonaws.com/default/hello-world-python")
         .then(resp=> {
             console.log(resp);
+            element.innerHTML = element.innerHTML +"<br>"+ resp.data; 
         });
     }
+    var interval = setInterval(callApi, 10*1000);
+
+    function startCallApi(){
+        interval = setInterval(callApi, 10*1000);
+    }
+
+    function stopCallApi(){
+        clearInterval(interval);
+    }
+    
     </script>
 </body>
 </html>
